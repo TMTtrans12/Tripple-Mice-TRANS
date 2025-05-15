@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tripple Mice Trans - Travel Agency</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/images/tmtlogo.svg" type="image/svg+xml" />
+
+  <!-- Icon library -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="reguler.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body id="top">
+
+  <!-- Header -->
+  <header class="header" data-header>
+    <div class="overlay" data-overlay></div>
+
+    <div class="header-top">
+      <div class="container">
+        <button class="btn btn-secondary-outline" onclick="window.location.href='index.html'">
+          <span class="icon-box"><ion-icon name="home-outline"></ion-icon></span>
+        </button>
+
+        <a href="#" class="logo">
+          <img src="assets/images/logokecil.png" alt="Tripple Mice Trans" />
+        </a>
+
+        <div class="header-btn-group">
+          <button class="search-btn" aria-label="Search">
+            <ion-icon name="search"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-bottom">
+      <div class="container">
+        <nav class="navbar" data-navbar>
+          <div class="navbar-top">
+            <a href="#" class="logo">
+              <img src="./assets/images/logo-blue.svg" alt="Tourly logo" />
+            </a>
+            <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <article>
+      <section class="booking-section" style="padding: 40px 15px;">
+        <div class="container">
+          <h2 class="h2 section-title">Form Pemesanan Paket Wisata</h2>
+          <form id="bookingForm" style="max-width: 600px; margin: auto;">
+            <table style="width: 100%; border-collapse: separate; border-spacing: 0 15px;">
+              <tr>
+                <td><label for="nama">Nama</label></td>
+                <td><input type="text" id="nama" name="nama" class="form-control" required></td>
+              </tr>
+              <tr>
+                <td><label for="hp">No HP</label></td>
+                <td><input type="tel" id="hp" name="hp" class="form-control" required></td>
+              </tr>
+              <tr>
+                <td><label for="email">Email</label></td>
+                <td><input type="email" id="email" name="email" class="form-control" required></td>
+              </tr>
+              <tr>
+                <td><label for="destinasi">Destinasi</label></td>
+                <td>
+                  <select id="destinasi" name="destinasi" class="form-control" required>
+                    <option value="" disabled selected>Pilih Destinasi</option>
+                    <option value="Bromo">Bromo</option>
+                    <option value="Pantai Balekambang">Pantai Balekambang</option>
+                    <option value="Pantai 3 Warna">Pantai 3 Warna</option>
+                    <option value="Pantai Goa Cina">Pantai Goa Cina</option>
+                    <option value="Taman Selecta">Taman Selecta</option>
+                    <option value="Jatim Park">Jatim Park</option>
+                    <option value="Museum Angkut">Museum Angkut</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="penjemputan">Penjemputan</label></td>
+                <td><input type="text" id="penjemputan" name="penjemputan" class="form-control" required></td>
+              </tr>
+              <tr>
+                <td><label for="tanggal">Tanggal</label></td>
+                <td><input type="date" id="tanggal" name="tanggal" class="form-control" required></td>
+              </tr>
+              <tr>
+                <td><label for="pax">Jumlah Pax</label></td>
+                <td><input type="number" id="pax" name="pax" class="form-control" min="1" required></td>
+              </tr>
+              <tr>
+                <td colspan="2" style="text-align: center;">
+                  <button type="submit" class="btn btn-primary">Kirim ke WhatsApp</button>
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <!-- JavaScript -->
+  <script>
+    document.getElementById('bookingForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Ambil nilai dari form
+      const nama = document.getElementById('nama').value;
+      const hp = document.getElementById('hp').value;
+      const email = document.getElementById('email').value;
+      const tujuan = document.getElementById('destinasi').value;
+      const penjemputan = document.getElementById('penjemputan').value;
+      const tanggal = document.getElementById('tanggal').value;
+      const pax = document.getElementById('pax').value;
+
+      // Format pesan WhatsApp
+      const pesan = `Halo Dengan Tripple Mice Trans saya ingin melakukan pemesanan paket wisata :
+*Nama:* ${nama}
+*No HP:* ${hp}
+*Email:* ${email}
+*Destinasi:* ${tujuan}
+*Penjemputan:* ${penjemputan}
+*Tanggal:* ${tanggal}
+*Jumlah Pax:* ${pax}`;
+
+      // Ganti nomor berikut dengan nomor WhatsApp Anda (gunakan format internasional tanpa +)
+      const nomorTujuan = '6289671722797';
+
+      // Buat URL WhatsApp
+      const url = `https://wa.me/${nomorTujuan}?text=${encodeURIComponent(pesan)}`;
+
+      // Buka di tab baru
+      window.open(url, '_blank');
+    });
+  </script>
+</body>
+
+</html>
